@@ -2,42 +2,40 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login FIFO Inventory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FIFO Inventory Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      padding: 0;
     }
-    .login-container {
+    .container {
+      width: 500px;
+      margin: 50px auto;
       background: white;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
     }
     h2 {
       text-align: center;
-      margin-bottom: 20px;
     }
-    input[type="text"], input[type="password"] {
-      width: 100%;
+    input[type="text"] {
+      width: calc(100% - 20px);
       padding: 10px;
-      margin: 5px 0 15px 0;
+      margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-sizing: border-box;
     }
     button {
       width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
       background: #4CAF50;
       color: white;
-      padding: 10px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -45,19 +43,61 @@
     button:hover {
       background: #45a049;
     }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #eee;
+      padding: 8px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>Login FIFO</h2>
-    <form action="fifo.html" method="get">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Masukkan username" required />
-      <label for="password">Password</label>
-      <input type="text" id="password" name="password" placeholder="Masukkan password" required />
-
-<button type="submit">Login</button>
-    </form>
+  <div class="container">
+    <h2>FIFO Inventory Management</h2>
+    <input type="text" id="itemInput" placeholder="Masukkan nama barang" />
+    <button onclick="tambahBarang()">Tambah Barang</button>
+    <button onclick="keluarkanBarang()">Keluarkan Barang Tertua</button>
+<h3>Daftar Barang (FIFO)</h3>
+    <ul id="inventoryList"></ul>
   </div>
+
+  <script>
+    const inventory = [];
+
+    function tambahBarang() {
+      const item = document.getElementById("itemInput").value;
+      if(item) {
+        inventory.push(item);
+        document.getElementById("itemInput").value = "";
+        tampilkanInventory();
+      } else {
+        alert("Masukkan nama barang terlebih dahulu.");
+      }
+    }
+
+    function keluarkanBarang() {
+      if(inventory.length > 0) {
+        const removedItem = inventory.shift();
+        alert(`Barang '${removedItem}' dikeluarkan dari inventory.`);
+        tampilkanInventory();
+      } else {
+        alert("Inventory kosong.");
+      }
+    }
+
+    function tampilkanInventory() {
+      const list = document.getElementById("inventoryList");
+      list.innerHTML = "";
+      inventory.forEach(function(item) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+    }
+  </script>
 </body>
 </html>
