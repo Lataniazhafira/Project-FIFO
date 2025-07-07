@@ -1,56 +1,72 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  background: linear-gradient(to right, #eaecee, #f3f6f8);
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-.container {
-  max-width: 500px;
-  margin: 50px auto;
+.login-container, .container {
   background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h2, h3 {
-  text-align: center;
-}
-
-input[type="text"] {
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   width: 100%;
+  max-width: 500px;
+}
+
+h1 {
+  text-align: center;
+  color: #005c99;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"] {
   padding: 10px;
-  margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  border-radius: 4px;
 }
 
 button {
-  width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  background: #4CAF50;
-  color: white;
+  background: #007acc;
   border: none;
-  border-radius: 5px;
+  color: white;
   cursor: pointer;
-  font-size: 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #45a049;
+  background: #005c99;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-li {
-  background: #eee;
+th, td {
+  border: 1px solid #ddd;
+  text-align: center;
   padding: 8px;
-  margin-bottom: 5px;
-  border-radius: 5px;
+}
+
+th {
+  background: #007acc;
+  color: white;
 }

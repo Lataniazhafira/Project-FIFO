@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aplikasi FIFO Inventory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>FIFO Inventory Management</h1>
+    
+    <form id="itemForm">
+      <input type="text" id="itemName" placeholder="Nama Barang" required />
+      <input type="number" id="itemQty" placeholder="Jumlah" required />
+      <input type="date" id="itemDate" required />
+      <button type="submit">Tambah Barang</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nama Barang</th>
+          <th>Jumlah</th>
+          <th>Tanggal Masuk</th>
+        </tr>
+      </thead>
+      <tbody id="itemList">
+        <!-- Data barang akan muncul di sini -->
+      </tbody>
+    </table>
+
+    <button id="removeItem">Keluarkan Barang (FIFO)</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
