@@ -1,103 +1,54 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FIFO Inventory Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      width: 500px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-    }
-    input[type="text"] {
-      width: calc(100% - 20px);
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      background: #eee;
-      padding: 8px;
-      margin-bottom: 5px;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>FIFO Inventory Management</h2>
-    <input type="text" id="itemInput" placeholder="Masukkan nama barang" />
-    <button onclick="tambahBarang()">Tambah Barang</button>
-    <button onclick="keluarkanBarang()">Keluarkan Barang Tertua</button>
-<h3>Daftar Barang (FIFO)</h3>
-    <ul id="inventoryList"></ul>
-  </div>
+# FIFO Inventory Management
 
-  <script>
-    const inventory = [];
+Aplikasi manajemen inventaris furniture dengan metode FIFO (First In First Out).
 
-    function tambahBarang() {
-      const item = document.getElementById("itemInput").value;
-      if(item) {
-        inventory.push(item);
-        document.getElementById("itemInput").value = "";
-        tampilkanInventory();
-      } else {
-        alert("Masukkan nama barang terlebih dahulu.");
-      }
-    }
+## Fitur
 
-    function keluarkanBarang() {
-      if(inventory.length > 0) {
-        const removedItem = inventory.shift();
-        alert(`Barang '${removedItem}' dikeluarkan dari inventory.`);
-        tampilkanInventory();
-      } else {
-        alert("Inventory kosong.");
-      }
-    }
+- Dashboard ringkasan barang
+- Daftar barang dengan status (Tersedia/Keluar)
+- Tampilan responsif dengan Bootstrap
 
-    function tampilkanInventory() {
-      const list = document.getElementById("inventoryList");
-      list.innerHTML = "";
-      inventory.forEach(function(item) {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-      });
-    }
-  </script>
-</body>
-</html>
+## Tampilan Dashboard
+
+![Contoh Dashboard](screenshot.png)
+
+## Struktur Navigasi
+
+- Dashboard
+- Tambah Barang
+- Kelola Barang
+- Keluar Barang
+- Laporan
+
+## Contoh Data Barang
+
+| #  | Nama Barang    | Jenis  | Tanggal Masuk | Status    |
+|----|---------------|--------|---------------|-----------|
+| 1  | Meja Belajar  | Meja   | 07 Jul 2025   | Tersedia  |
+| 2  | Kursi Lipat   | Kursi  | 07 Jul 2025   | Tersedia  |
+| 3  | Lemari Kayu   | Lemari | 06 Jul 2025   | Keluar    |
+| 4  | Rak Buku      | Rak    | 05 Jul 2025   | Tersedia  |
+| 5  | Sofa Tamu     | Sofa   | 05 Jul 2025   | Keluar    |
+
+## Instalasi
+
+1. Clone repository ini:
+   ```
+   git clone https://github.com/username/Project-FIFO.git
+   ```
+2. Buka folder project di editor Anda.
+3. Jalankan file `main_Page` atau `index.html` di browser.
+
+## Teknologi
+
+- HTML, CSS, JavaScript
+- [Bootstrap 5](https://getbootstrap.com/)
+
+## Lisensi
+
+MIT License
+
+---
+
+> **Catatan:**  
+> Jika Anda ingin melihat kode dashboard HTML, lihat file `main_Page` atau file terkait di repository ini.
