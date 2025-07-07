@@ -3,57 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FIFO Inventory Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      width: 500px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-    }
-    input[type="text"] {
-      width: calc(100% - 20px);
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      background: #eee;
-      padding: 8px;
-      margin-bottom: 5px;
-      border-radius: 5px;
-    }
-  </style>
+  <title>FIFO Inventory Management</title>
+  <link rel="stylesheet" href="style.css"> <!-- Memanggil file CSS eksternal -->
 </head>
 <body>
   <div class="container">
@@ -61,43 +12,10 @@
     <input type="text" id="itemInput" placeholder="Masukkan nama barang" />
     <button onclick="tambahBarang()">Tambah Barang</button>
     <button onclick="keluarkanBarang()">Keluarkan Barang Tertua</button>
-<h3>Daftar Barang (FIFO)</h3>
+    <h3>Daftar Barang (FIFO)</h3>
     <ul id="inventoryList"></ul>
   </div>
 
-  <script>
-    const inventory = [];
-
-    function tambahBarang() {
-      const item = document.getElementById("itemInput").value;
-      if(item) {
-        inventory.push(item);
-        document.getElementById("itemInput").value = "";
-        tampilkanInventory();
-      } else {
-        alert("Masukkan nama barang terlebih dahulu.");
-      }
-    }
-
-    function keluarkanBarang() {
-      if(inventory.length > 0) {
-        const removedItem = inventory.shift();
-        alert(`Barang '${removedItem}' dikeluarkan dari inventory.`);
-        tampilkanInventory();
-      } else {
-        alert("Inventory kosong.");
-      }
-    }
-
-    function tampilkanInventory() {
-      const list = document.getElementById("inventoryList");
-      list.innerHTML = "";
-      inventory.forEach(function(item) {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-      });
-    }
-  </script>
+  <script src="script.js"></script> <!-- Memanggil file JavaScript eksternal -->.
 </body>
 </html>
