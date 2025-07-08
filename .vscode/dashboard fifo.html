@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard FIFO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="sidebar">
+      <h2>FIFO Furniture</h2>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Tambah Barang</a></li>
+        <li><a href="#">Kelola Barang</a></li>
+        <li><a href="#">Keluar Barang</a></li>
+        <li><a href="#">Laporan</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <h1>Dashboard</h1>
+
+      <div class="cards">
+        <div class="card blue">
+          <p class="number">0</p>
+          <p>Total Barang</p>
+        </div>
+        <div class="card green">
+          <p class="number">0</p>
+          <p>Barang Tersedia</p>
+        </div>
+        <div class="card red">
+          <p class="number">0</p>
+          <p>Barang Keluar</p>
+        </div>
+      </div>
+
+      <h3>Daftar Barang Furniture (FIFO)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nama Barang</th>
+            <th>Jenis Barang</th>
+            <th>Tanggal Masuk</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Data barang akan muncul di sini -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
